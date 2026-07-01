@@ -4,28 +4,28 @@ public class Stack {
     Nodo top;
     int tamanio;
 
-    public void push(int valor) {
-        Nodo nuevo = new Nodo(valor);
+    public void push(String url) {
+        Nodo nuevo = new Nodo(url);
         nuevo.siguiente = top;
         top = nuevo;
         tamanio++;
     }
 
-    public int pop() {
-        if (tamanio == 0) {
-            throw new EmptyStackException();
+    public String pop() throws Exception {
+        if (top == null) {
+            throw new Exception("No pages in history to go back to.");
         }
-        int valor = top.valor;
+        String url = top.url;
         top = top.siguiente;
         tamanio--;
-        return valor;
+        return url;
     }
 
-    public int peek() {
+    public String peek() throws Exception {
         if (tamanio == 0) {
-            throw new  EmptyStackException();
+            throw new Exception("No pages in history to go back to.");
         }
-        return top.valor;
+        return top.url;
     }
 
     public int size(){
@@ -42,7 +42,7 @@ public class Stack {
     public void printStack(){
         Nodo puntero = top;
         while(puntero != null){
-            System.out.println(puntero.valor);
+            System.out.println(puntero.url);
             puntero = puntero.siguiente;
         }
     }

@@ -1,8 +1,8 @@
 public class Nodo {
-    int valor;
+    String url;
     Nodo siguiente;
 
-    public Nodo(int valor) {
-        this.valor = valor;
+    public Nodo(String url) {
+        this.url = url;
     }
 }
